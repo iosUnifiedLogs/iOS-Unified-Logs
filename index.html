@@ -58,6 +58,31 @@ td.example-cell {
 
 td.example-cell:hover {
   cursor: help;
+}
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+}
+.popup-content {
+  background: white;
+  padding: 1.5em;
+  border-radius: 8px;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
 }    
     
 </style>
@@ -80,7 +105,7 @@ td.example-cell:hover {
 <tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr>
 <tr><td>0</td><td></td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>1</td><td></td><td>%updated airplane mode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td class="example-cell" title="2025-05-18 12:38:21.541653+0200 springboard [com.apple.springboard]: toggled airplane mode from control center.">2025-05-18 12:38:21.541653+0200 springboard…</td></tr>
+<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td><a href="#" onclick="showPopup('2025-05-20T10:25:13.621100+0200')">View</a></td></tr>
 <tr><td>3</td><td></td><td>%setting value for /device/system/airplaneMode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>4</td><td></td><td>%ignoring serving system update as airplane mode is on%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>5</td><td></td><td>%requesting operating mode change to lowpower [ airplane ]%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
@@ -115,5 +140,26 @@ td.example-cell:hover {
 <tr><td>14</td><td>contextstored</td><td>%/device/app/infocus%</td><td>nan</td><td>Lionel Notari</td><td>nan</td></tr>
 </table>
 <h2 id="audio_output">Audio Output</h2><table border="1" cellpadding="6" cellspacing="0" style="width:100%; border-collapse: collapse;"><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>audiomxd</td><td>%vaemconfigurepvmsettings%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>audiomxd</td><td>%btaudioavnotificationmonitor%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>2</td><td>audiomxd</td><td>%route changed.%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>3</td><td>audiomxd</td><td>%currently activating endpoint%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>4</td><td>audiomxd</td><td>%route picked%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>5</td><td>audiomxd</td><td>%logendpointid:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table>
-<h2 id="battery">Battery</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>powerd</td><td>%battery capacity change posted%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>springboard</td><td>%found power source%battery provides time remaining%date of manufacture%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>2</td><td>poweruiagent</td><td>%called for battery level%externalconnected%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr><tr><td>3</td><td>poweruiagent</td><td>%handle callback%sCharging%atteryLevel%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr><tr><td>4</td><td>symptomsd</td><td>%power: battery-percentage%battery-absolute-capacity-mah%battery-raw-current-capacity%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr><tr><td>5</td><td></td><td>%battery info changed to%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>6</td><td></td><td>%battery capacity is now at%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr></tbody></table><h2 id="backlight">Backlight</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>springboard</td><td>%animating backlight to factor%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table><h2 id="back_tap">Back Tap</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>accessibilityuiserver</td><td>%axphoenixanalyticseventtypedoubletap%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>accessibilityuiserver</td><td>%event in time for event tap%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table><h2 id="bluetooth">Bluetooth</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>bluetoothd</td><td>%discovered device%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>bluetoothd</td><td>%device found:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>2</td><td>bluetoothd</td><td>%running sdp%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>3</td><td>bluetoothd</td><td>%numeric comparison request%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>4</td><td>bluetoothd</td><td>%pairing started%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>5</td><td>bluetoothd</td><td>%pairing complete%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>6</td><td>bluetoothd</td><td>%device connected%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>7</td><td>bluetoothd</td><td>%incoming sdp%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>8</td><td>preferences</td><td>%user confirmation request%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>9</td><td>springboard</td><td>%current bluetooth state :%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>10</td><td>springboard</td><td>%bluetooth state updated to%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>11</td><td>springboard</td><td>%toggle bluetooth state%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>12</td><td>carkitd</td><td>%sending new bluetooth state%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>13</td><td>findmydevice</td><td>%sending new bluetooth state%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>14</td><td>sharingd</td><td>%device connected:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>15</td><td>accessoryd</td><td>%adding accessory info:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>16</td><td>audioaccessoryd</td><td>%bluetooth state changed:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>17</td><td>rapportdd</td><td>%bluetooth state changed:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table></body>
+<h2 id="battery">Battery</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>powerd</td><td>%battery capacity change posted%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>springboard</td><td>%found power source%battery provides time remaining%date of manufacture%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>2</td><td>poweruiagent</td><td>%called for battery level%externalconnected%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr><tr><td>3</td><td>poweruiagent</td><td>%handle callback%sCharging%atteryLevel%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr><tr><td>4</td><td>symptomsd</td><td>%power: battery-percentage%battery-absolute-capacity-mah%battery-raw-current-capacity%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr><tr><td>5</td><td></td><td>%battery info changed to%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>6</td><td></td><td>%battery capacity is now at%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr></tbody></table><h2 id="backlight">Backlight</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>springboard</td><td>%animating backlight to factor%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table><h2 id="back_tap">Back Tap</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>accessibilityuiserver</td><td>%axphoenixanalyticseventtypedoubletap%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>accessibilityuiserver</td><td>%event in time for event tap%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table><h2 id="bluetooth">Bluetooth</h2><table><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>bluetoothd</td><td>%discovered device%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>bluetoothd</td><td>%device found:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>2</td><td>bluetoothd</td><td>%running sdp%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>3</td><td>bluetoothd</td><td>%numeric comparison request%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>4</td><td>bluetoothd</td><td>%pairing started%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>5</td><td>bluetoothd</td><td>%pairing complete%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>6</td><td>bluetoothd</td><td>%device connected%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>7</td><td>bluetoothd</td><td>%incoming sdp%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>8</td><td>preferences</td><td>%user confirmation request%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>9</td><td>springboard</td><td>%current bluetooth state :%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>10</td><td>springboard</td><td>%bluetooth state updated to%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>11</td><td>springboard</td><td>%toggle bluetooth state%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>12</td><td>carkitd</td><td>%sending new bluetooth state%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>13</td><td>findmydevice</td><td>%sending new bluetooth state%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>14</td><td>sharingd</td><td>%device connected:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>15</td><td>accessoryd</td><td>%adding accessory info:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>16</td><td>audioaccessoryd</td><td>%bluetooth state changed:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>17</td><td>rapportdd</td><td>%bluetooth state changed:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table>
+
+<!-- Fenêtre modale cachée -->
+<div id="popup" class="popup" style="display:none;">
+  <div class="popup-content">
+    <span class="close" onclick="hidePopup()">&times;</span>
+    <pre id="popupText"></pre>
+  </div>
+</div>
+
+    
+<script>
+  function showPopup(content) {
+    document.getElementById("popupText").innerText = content;
+    document.getElementById("popup").style.display = "flex";
+  }
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>    
+  
+</body>
 </html>

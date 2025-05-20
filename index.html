@@ -22,9 +22,7 @@
   th:nth-child(4), td:nth-child(4) { width: 10%; }
   th:nth-child(5), td:nth-child(5) { width: 15%; }
   th:nth-child(6), td:nth-child(6) { width: 10%; }
-  h2 {
-    margin-top: 2em;  
-  }
+
 body {
   font-family: system-ui, sans-serif;
   margin: 2em;
@@ -50,7 +48,17 @@ td, th {
   font-size: 13px;
   word-break: break-word;
 }
-    
+
+td.example-cell {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.example-cell:hover {
+  cursor: help;
+}    
     
 </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +80,7 @@ td, th {
 <tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr>
 <tr><td>0</td><td></td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>1</td><td></td><td>%updated airplane mode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td class="example-cell" title="2025-05-18 12:38:21.541653+0200 springboard [com.apple.springboard]: toggled airplane mode from control center.">2025-05-18 12:38:21.541653+0200 springboard…</td></tr>
 <tr><td>3</td><td></td><td>%setting value for /device/system/airplaneMode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>4</td><td></td><td>%ignoring serving system update as airplane mode is on%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>5</td><td></td><td>%requesting operating mode change to lowpower [ airplane ]%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>

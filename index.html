@@ -38,27 +38,26 @@
   </style
 </head>
 </head>
-<body><div class="container"><h1>Table of Contents</h1><ul><li><a href="#airplane_mode">Airplane Mode</a></li><li><a href="#app_state">App State</a></li><li><a href="#battery">Battery</a></li><li><a href="#backlight">Backlight</a></li><li><a href="#back_tap">Back Tap</a></li><li><a href="#bluetooth">Bluetooth</a></li></ul></div>
+<div class="container"><div><h1>Table of Contents</h1><ul><li><a href="#airplane_mode">Airplane Mode</a></li><li><a href="#app_state">App State</a></li><li><a href="#battery">Battery</a></li><li><a href="#backlight">Backlight</a></li><li><a href="#back_tap">Back Tap</a></li><li><a href="#bluetooth">Bluetooth</a></li></ul></div>
 <h2 id="airplane_mode">Airplane Mode</h2>
 <p>These queries are used by the parser to detect Airplane Mode-related activity in the Unified Logs.</p>
 <table>
 <tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>OS Version</th><th>Added by</th><th>Example</th></tr>
-<tr><td>0</td><td>springboard</td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>1</td><td>commcenter</td><td>%updated airplane mode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>2</td><td>commcenter</td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>3</td><td>preferences</td><td>%setting value for /device/system/airplaneMode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>4</td><td>locationd</td><td>%ignoring serving system update as airplane mode is on%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>5</td><td>configd</td><td>%requesting operating mode change to lowpower [ airplane ]%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>6</td><td>powerd</td><td>%airplane mode is unchanged%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>7</td><td>mobiletimerd</td><td>%airplane mode state%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>8</td><td>locationd</td><td>%airplane mode : %</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>9</td><td>wifid</td><td>%airplane mode is%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>10</td><td>symptomsd</td><td>%airplane mode state%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>11</td><td>locationd</td><td>%setting airplane mode on to%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>12</td><td>wifid</td><td>%checkairplanemodeenabledwithqueue%checking if airplane mode is enabled%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>13</td><td>configd</td><td>%setting manual time%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>14</td><td>configd</td><td>%system wallclock time adjusted%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>15</td><td>configd</td><td>%AutomaticTimeZone%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>0</td><td></td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>1</td><td></td><td>%updated airplane mode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>3</td><td></td><td>%setting value for /device/system/airplaneMode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>4</td><td></td><td>%ignoring serving system update as airplane mode is on%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>5</td><td></td><td>%requesting operating mode change to lowpower [ airplane ]%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>6</td><td></td><td>%airplane mode is unchanged%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>7</td><td></td><td>%airplane mode state%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>8</td><td></td><td>%airplane mode : %</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>9</td><td>/td><td>%airplane mode is%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>10</td><td></td><td>%airplane mode state%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>11</td><td></td><td>%setting airplane mode on to%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>12</td><td>/td><td>%checkairplanemodeenabledwithqueue%checking if airplane mode is enabled%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>13</td><td></td><td>%airplane%enable%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
+<tr><td>14</td><td></td><td>%airplane%disable%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 </table>
 <h2 id="app_state">App State</h2>
 <p>These queries are used by the parser to detect app launch, foreground, and visibility transitions in the Unified Logs.</p>

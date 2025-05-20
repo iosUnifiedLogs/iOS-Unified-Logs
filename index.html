@@ -15,21 +15,24 @@
   </style
 </head>
 <body>
-  <div class="container">
-    <h1>🔍 iOS Unified Logs – SQL Cheatsheet</h1>
-    <p>This site is a collaborative resource that lists all SQL queries used Lionel Notari's parser to extract relevant iOS Unified Logs.</p>
-    
-    <h2>🚀 Access the Cheatsheet</h2>
-    <ul>
-      <li><a href="Airplane_Mode.md">Airplane Mode</a></li>
-      <li><a href="App_State.md">App State</a></li>
-      <!-- Tu ajoutes ici toutes les catégories avec leurs fichiers -->
-    </ul>
+ <div>
+  <h1>
+   Table of Contents
+  </h1>
+  <ul>
+   <li><a href="#airplane_mode">Airplane Mode</a></li>
+   <li><a href="#app_state">App State</a></li>
+   <li><a href="#battery">Battery</a></li>
+   <li><a href="#backlight">Backlight</a></li>
+   <li><a href="#back_tap">Back Tap</a></li>
+   <li><a href="#bluetooth">Bluetooth</a></li>
+  </ul>
+ </div>
 
-    <h2>👥 Contribute</h2>
-    <p>Want to contribute? Fork the <a href="https://github.com/iosUnifiedLogs/iOS-Unified-Logs">GitHub repository</a> and submit a pull request!</p>
-
-    <p style="margin-top: 3em; font-size: 0.9em;">Maintained by <a href="https://www.ios-unifiedlogs.com">Lionel Notari</a></p>
-  </div>
-</body>
+ <h2 id="airplane_mode">Airplane Mode</h2>
+ <p>These queries are used by the parser to detect Airplane Mode-related activity in the Unified Logs.</p>
+ <table>
+  <tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>OS Version</th><th>Added by</th><th>Example</th></tr>
+  <tr><td>0</td><td>springboard</td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
+  ...
 </html>

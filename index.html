@@ -129,6 +129,15 @@ td.example-cell:hover {
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
+} 
+input#filterInput {
+  width: 100%;
+  padding: 0.75em;
+  margin-bottom: 1.5em;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }    
     
 </style>
@@ -154,8 +163,9 @@ td.example-cell:hover {
 <tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr>
 <tr><td>0</td><td></td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>1</td><td></td><td>%updated airplane mode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td>< class="example-cell" data-fulltext="2025-05-20T10:25:13.621100+0200">
-  <a href="#" onclick="showPopup('2025-05-20T10:25:13.621100+0200')">View</a></td></tr>
+<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td class="example-cell" data-fulltext="2025-05-20T10:25:13.621100+0200">
+  <a href="#" onclick="showPopup(this.dataset.fulltext)">View</a>
+</td></tr>
 <tr><td>3</td><td></td><td>%setting value for /device/system/airplaneMode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>4</td><td></td><td>%ignoring serving system update as airplane mode is on%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>5</td><td></td><td>%requesting operating mode change to lowpower [ airplane ]%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>

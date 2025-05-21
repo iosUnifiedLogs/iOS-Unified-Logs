@@ -113,6 +113,10 @@ td.example-cell:hover {
   cursor: help;
 }
 
+.search-bar {
+  margin: 0.5em 0 0.5em 0;
+}    
+
 .popup-content {
   background: white;
   padding: 1.5em;
@@ -155,9 +159,9 @@ input#filterInput {
 </head>
 <div class="container"><div><h1>Table of Contents</h1><ul><li><a href="#airplane_mode">Airplane Mode</a></li><li><a href="#app_state">App State</a></li><li><a href="#battery">Battery</a></li><li><a href="#backlight">Backlight</a></li><li><a href="#back_tap">Back Tap</a></li><li><a href="#bluetooth">Bluetooth</a></li></ul></div>
 
-<div style="margin-bottom: 0.2em; margin-top: 0.5em;">
+<div class="search-bar">
   <input id="filterInput" onkeyup="filterTable()" placeholder="Filter logs..." style="width: 100%; padding: 0.5em; font-size: 14px;">
-</div>    
+</div>
     
 <h2 id="airplane_mode">Airplane Mode</h2>
 <p>These queries are used by the parser to detect Airplane Mode-related activity in the Unified Logs.</p>

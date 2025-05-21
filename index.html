@@ -3,7 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>iOS Unified Logs – SQL Cheatsheet</title>
-  <style>
+  <script>
+    function filterTable() {
+      let input = document.getElementById("filterInput");
+      let filter = input.value.toLowerCase();
+      let tables = document.querySelectorAll("table");
+  
+      tables.forEach(table => {
+        let rows = table.getElementsByTagName("tr");
+        for (let i = 1; i < rows.length; i++) {
+          let row = rows[i];
+          let text = row.innerText + (row.querySelector("[data-fulltext]")?.dataset.fulltext || "");
+          row.style.display = text.toLowerCase().includes(filter) ? "" : "none";
+        }
+      });
+    }
+  </script>
+  
+  <style>    
  .popup-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -130,11 +147,15 @@ td.example-cell:hover {
 <div class="container"><div><h1>Table of Contents</h1><ul><li><a href="#airplane_mode">Airplane Mode</a></li><li><a href="#app_state">App State</a></li><li><a href="#battery">Battery</a></li><li><a href="#backlight">Backlight</a></li><li><a href="#back_tap">Back Tap</a></li><li><a href="#bluetooth">Bluetooth</a></li></ul></div>
 <h2 id="airplane_mode">Airplane Mode</h2>
 <p>These queries are used by the parser to detect Airplane Mode-related activity in the Unified Logs.</p>
+<div style="margin-bottom: 1em;">
+  <input id="filterInput" onkeyup="filterTable()" placeholder="Filter logs..." style="width: 100%; padding: 0.5em; font-size: 14px;">
+</div>    
 <table>
 <tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr>
 <tr><td>0</td><td></td><td>%toggle airplane mode%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>1</td><td></td><td>%updated airplane mode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
-<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td><a href="#" onclick="showPopup('2025-05-20T10:25:13.621100+0200')">View</a></td></tr>
+<tr><td>2</td><td></td><td>%default airplane mode power state :%</td><td>iOS 15</td><td>Lionel Notari</td><td>< class="example-cell" data-fulltext="2025-05-20T10:25:13.621100+0200">
+  <a href="#" onclick="showPopup('2025-05-20T10:25:13.621100+0200')">View</a></td></tr>
 <tr><td>3</td><td></td><td>%setting value for /device/system/airplaneMode:%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>4</td><td></td><td>%ignoring serving system update as airplane mode is on%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>5</td><td></td><td>%requesting operating mode change to lowpower [ airplane ]%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>

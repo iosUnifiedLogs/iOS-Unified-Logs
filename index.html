@@ -181,13 +181,27 @@ td.example-cell:hover {
 
     
 <script>
-  function showPopup(content) {
-    document.getElementById("popupText").innerText = content;
-    document.getElementById("popup").style.display = "flex";
-  }
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
+function showPopup(content) {
+  const overlay = document.createElement('div');
+  overlay.className = 'popup-overlay';
+  overlay.innerHTML = `
+    <div class="popup">
+      <pre id="popupContent">${content}</pre>
+      <div class="popup-buttons">
+        <button onclick="copyPopupText()">Copy</button>
+        <button onclick="closePopup()">Close</button>
+      </div>
+    </div>
+  `;
+
+  overlay.addEventListener('click', function (event) {
+    if (event.target === overlay) {
+      closePopup();
+    }
+  });
+
+  document.body.appendChild(overlay);
+}
 
   function showPopup(content) {
     const overlay = document.createElement('div');

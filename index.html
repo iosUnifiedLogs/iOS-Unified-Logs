@@ -31,6 +31,26 @@
   z-index: 1000;
 }
 
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333366;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1000;
+}
+
+#backToTop:hover {
+  background-color: #5555aa;
+}
+
 .popup {
   background: white;
   padding: 20px;
@@ -166,7 +186,6 @@ input#filterInput {
 </head>
 
 <body>
-<div id="top"></div>
 <div class="container"><div><h1>Table of Contents</h1><ul><li><a href="#airplane_mode">Airplane Mode</a></li><li><a href="#app_state">App State</a></li><li><a href="#battery">Battery</a></li><li><a href="#backlight">Backlight</a></li><li><a href="#back_tap">Back Tap</a></li><li><a href="#bluetooth">Bluetooth</a></li></ul></div>
 
 <div class="search-bar">
@@ -196,9 +215,7 @@ input#filterInput {
 <tr><td>13</td><td></td><td>%airplane%enable%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr>
 <tr><td>14</td><td></td><td>%airplane%disable%</td><td>iOS 15</td><td>Lionel Notari</td><td></td></tr>
 </table>
-<p style="text-align: right; margin-top: 0.5em;">
-  <a href="#top" style="font-size: 13px;">↑ Back to top</a>
-</p>
+
 
 
 
@@ -223,9 +240,6 @@ input#filterInput {
 <tr><td>13</td><td>runningboardd</td><td>%received termination request from%bsprocesshandlepredicateimpl%processvisibility:%processstate%maxterminationresistance%</td><td>nan</td><td>Lionel Notari</td><td>nan</td></tr>
 <tr><td>14</td><td>contextstored</td><td>%/device/app/infocus%</td><td>nan</td><td>Lionel Notari</td><td>nan</td></tr>
 </table>
-<p style="text-align: right; margin-top: 0.5em;">
-  <a href="#top" style="font-size: 13px;">↑ Back to top</a>
-</p>
 
 
 <h2 id="audio_output">Audio Output</h2><table border="1" cellpadding="6" cellspacing="0" style="width:100%; border-collapse: collapse;"><thead><tr><th>#</th><th>Process</th><th>eventMessage (SQL LIKE)</th><th>iOS v.</th><th>Added by</th><th>Example</th></tr></thead><tbody><tr><td>0</td><td>audiomxd</td><td>%vaemconfigurepvmsettings%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>1</td><td>audiomxd</td><td>%btaudioavnotificationmonitor%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>2</td><td>audiomxd</td><td>%route changed.%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>3</td><td>audiomxd</td><td>%currently activating endpoint%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>4</td><td>audiomxd</td><td>%route picked%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr><tr><td>5</td><td>audiomxd</td><td>%logendpointid:%</td><td>iOS 14</td><td>Lionel Notari</td><td></td></tr></tbody></table>
@@ -334,6 +348,25 @@ function showToast(message) {
 }
     
 </script>    
+
+<script>
+  // Afficher ou cacher le bouton selon le scroll
+  window.onscroll = function() {
+    const btn = document.getElementById("backToTop");
+    if (document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll fluide vers le haut
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<button id="backToTop" onclick="scrollToTop()">↑ Top</button>
   
 </body>
 </html>

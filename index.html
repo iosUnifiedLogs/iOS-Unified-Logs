@@ -113,12 +113,17 @@ td.example-cell:hover {
   cursor: help;
 }
 
+ 
 .search-bar {
-  margin: 0.5em 0 0.5em 0; /* réduit l'espacement */
   display: flex;
-  justify-content: center; /* centre horizontalement */
-}    
+  justify-content: center; /* centre l'input horizontalement */
+  margin: 1em 0 0.5em 0;
+}
 
+.search-bar input {
+  max-width: 600px; /* limite la largeur pour rester lisible */
+  width: 100%;
+}
 .popup-content {
   background: white;
   padding: 1.5em;
